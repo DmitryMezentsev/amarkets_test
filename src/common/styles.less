@@ -1,0 +1,114 @@
+@import '~Common/colors';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Lora', sans-serif;
+  background-image: url("~Common/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input, textarea, button,
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+}
+
+::selection {
+  background: @color-primary;
+  color: @color-light;
+}
+
+:invalid { box-shadow: none; }
+:-moz-submit-invalid { box-shadow: none; }
+:-moz-ui-invalid { box-shadow: none; }
+
+button.btn {
+  &.btn-secondary {
+    background: @color-primary;
+    border-color: @color-primary;
+    color: @color-light;
+    box-shadow: none !important;
+
+    &:hover {
+      @color: darken(@color-primary, 5%);
+
+      background-color: @color;
+      border-color: @color;
+      color: @color-light;
+    }
+
+    &:active:not(:disabled) {
+      @color: darken(@color-primary, 8%);
+
+      background-color: @color;
+      border-color: @color;
+      color: @color-light;
+    }
+
+    &:disabled {
+      opacity: 1;
+      background: @color-primary;
+      border-color: @color-primary;
+      color: shade(@color-light, 30%);
+      cursor: default;
+    }
+  }
+}
+
+input {
+  &[type=text],
+  &[type=email],
+  &[type=password],
+  &[type=url],
+  &[type=tel] {
+    &:focus {
+      box-shadow: none;
+      border-color: @color-primary;
+    }
+  }
+
+  &[type=checkbox] {
+    &:focus {
+      &:not(:checked) {
+        + label:before {
+          border-color: #adb5bd !important;
+        }
+      }
+
+      + label:before {
+        box-shadow: none !important;
+      }
+    }
+
+    &:checked, &:active {
+      + label:before {
+        border-color: @color-primary !important;
+        background-color: @color-primary !important;
+      }
+    }
+
+    + label {
+      user-select: none;
+    }
+  }
+}
+
+select.custom-select {
+  &:focus {
+    box-shadow: none;
+    border-color: @color-primary;
+  }
+}
+
+.spinner-border {
+  @color: @color-primary;
+
+  border-bottom-color: @color;
+  border-left-color: @color;
+  border-top-color: @color;
+}
+
+.hidden { display: none; }
