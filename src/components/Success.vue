@@ -22,6 +22,7 @@ export default {
   color: @color-light;
   position: fixed;
   top: 35%;
-  width: 100%;
+  left: 0;
+  right: 0;
 }
 </style>
